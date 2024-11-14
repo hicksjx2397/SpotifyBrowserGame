@@ -1,0 +1,24 @@
+<div class="home-container">
+    <h1>Game Configuration Settings</h1>
+    <p>Modifiers: Removing each will grant 5 <br>additional points per correct answer</p>
+    <div class="setting-container">
+      <p style="margin-right: 60px; font-size: medium;">Album art:</p>
+      <label class="switch">
+        <input type="checkbox" (click)="changeOption('option1')" [checked]="option1">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="setting-container">
+      <p style="margin-right: 50px; font-size: medium;">Artist name:</p>
+      <label class="switch">
+        <input type="checkbox" (click)="changeOption('option2')" [checked]="option2">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="button-container">
+      <button (click)="saveSettings()" class="btn-secondary" [ngClass]="{'saved': isSaved}">
+        {{ isSaved ? 'Saved' : 'Save Settings' }}
+      </button>
+      <button (click)="goHome()" class="btn-secondary">Back to Home</button>
+    </div>
+  </div>

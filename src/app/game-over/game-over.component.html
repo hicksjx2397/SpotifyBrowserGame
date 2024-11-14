@@ -1,0 +1,16 @@
+<div class="game-over-container">
+  <h1 class="game-over-text">GAME OVER!</h1>
+  <p class="score-text">Your Score: {{ scoreRatio }} ({{ scorePercentage.toFixed(2) }}%)</p>
+  <p class="great-job-text">Great Job!</p>
+  <div class="name-input">
+    <label for="playerName">Enter your name:</label>
+    <input id="playerName" [(ngModel)]="playerName" type="text">
+  </div>
+  <div class="button-container">
+    <button (click)="submitScore()" class="btn btn-primary" [disabled]="isSubmitted" [ngClass]="{'submitted': isSubmitted}">
+      {{ isSubmitted ? 'Submitted' : 'Submit Score' }}
+    </button>
+    <button (click)="playAgain()" class="btn btn-secondary">Play again?</button>
+    <button (click)="goHome()" class="btn btn-secondary">Back to home</button>
+  </div>
+</div>

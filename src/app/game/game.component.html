@@ -1,0 +1,39 @@
+<div class="game-container" *ngIf="currentTrack; else loading">
+  <div class="timer-container">
+    <div class="timer-circle">
+      <span class="timer-number">{{secondsRemaining}}</span>
+    </div>
+  </div>
+
+  <div class="game-header">
+    <span>Score: {{ score }} | Question: {{ currentQuestion }}</span>
+  </div>
+  <div class="album-art-container" *ngIf = "showCover; else noCover">
+    <img [src]="currentTrack.album.images[0]?.url || '/assets/default-album-art.png'" alt="Album Art" class="album-art">
+  </div>
+  <ng-template class="album-art-container"  #noCover >
+    <img [src]="'/assets/default-album-art.png'" alt="Album Art" class="album-art">
+  </ng-template>
+
+  <div class="game-header" *ngIf = "showName">
+     <span>Artist: {{ currentTrack.artists[0].name }}</span>
+  </div>
+  <button (click)="playAudio()" class="play-pause-btn" [disabled]="isPlaying || !currentTrack.preview_url">
+    {{ isPlaying ? 'Playing...' : (hasListened ? 'Play Again' : 'Play Track') }}
+  </button>
+  <div class="question">What is the name of this song?</div>
+  <div class="options-grid">
+    <button *ngFor="let option of options"
+            (click)="selectAnswer(option)"
+            [class.selected]="selectedAnswer === option"
+            [disabled]="answerSubmitted"
+            class="option-btn">
+      {{ option }}
+    </button>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="loading-container">
+    <p>Loading tracks...</p>
+  </div>
+</ng-template>

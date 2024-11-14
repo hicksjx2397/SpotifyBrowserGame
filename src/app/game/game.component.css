@@ -1,0 +1,92 @@
+.game-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  padding-left: 140px; 
+}
+
+.timer-container {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+}
+
+.timer-circle {
+  width: 100%;
+  height: 100%;
+  background-color: #08ef2f; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-number {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+.game-header {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.album-art-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.album-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-pause-btn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+}
+
+.question {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 15px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option-btn:hover {
+  background-color: #e8e8e8;
+}
+
+.option-btn.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 20px;
+}

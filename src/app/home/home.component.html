@@ -1,0 +1,24 @@
+<div class="home-container">
+  <h1>Who's Who:<br> The Song Guessing Game</h1>
+  <div *ngIf="authLoading">Loading...</div>
+  <div *ngIf="!authLoading">
+    <div class="genre-selection">
+      <h2>Choose a Genre:</h2>
+      <select [(ngModel)]="selectedGenre" (change)="setGenre($event)">
+        <option value="">-- Select Genre --</option>
+        <option *ngFor="let genre of genres" [value]="genre">{{genre}}</option>
+      </select>
+    </div>
+    <div class="button-container">
+      <button (click)="startGame()" class="btn-primary" [disabled]="!selectedGenre">
+        Start Game
+      </button>
+      <button (click)="openConfiguration()" class="btn-secondary">
+        Configure Game
+      </button>
+      <button (click)="openLeaderboard()" class="btn-secondary">
+        Leaderboard
+      </button>
+    </div>
+  </div>
+</div>
